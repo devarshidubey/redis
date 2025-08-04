@@ -25,8 +25,10 @@ Instead of multithreading, this Redis clone uses a custom **event loop** built w
 
 ### Bottom Line:  
 **Event loop > Threads** when scaling to thousands of concurrent connections.
-### Side note
+
+### Side note:
 A production implementation should replace poll() with epoll() as it stores the FDs in the kernel so that the FD args aren't copied in every itereation. Since this is a small scale implementation, I took the liberty to just use poll().
+
 ---
 
 ## Why C++?
